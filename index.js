@@ -6,7 +6,8 @@ import dotenv from "dotenv" ;
 dotenv.config();
 //const express = require('express');
 const app = express();
-const PORT = 5000;///any number
+// const PORT = 5000;///any number
+const PORT = process.env.PORT;//heroku will fill automatically
 
 //Tell express what format data you are going to get - json,xml,txt
 // middleware - gatekeeper
@@ -15,7 +16,11 @@ app.use(express.json());
 //express.json() - inbuild middleware
 //3rd party & custom middleware
 
-console.log(process.env)
+
+//Heroku doesnot have dotenv -file
+//MONGO_URL -settings
+
+console.log(process.env);
 
 async function createConnection() {
 
